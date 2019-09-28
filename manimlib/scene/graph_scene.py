@@ -61,7 +61,7 @@ class GraphScene(Scene):
         self.right_T_label = VGroup()
         self.right_v_line = VGroup()
 
-    def setup_axes(self, animate=False):
+    def setup_axes(self, animate=False,**kwargs):
         # TODO, once eoc is done, refactor this to be less redundant.
         x_num_range = float(self.x_max - self.x_min)
         self.space_unit_to_x = self.x_axis_width / x_num_range
@@ -76,7 +76,7 @@ class GraphScene(Scene):
             tick_frequency=self.x_tick_frequency,
             leftmost_tick=self.x_leftmost_tick,
             numbers_with_elongated_ticks=self.x_labeled_nums,
-            color=self.axes_color
+            color=self.axes_color,**kwargs
         )
         x_axis.shift(self.graph_origin - x_axis.number_to_point(0))
         if len(self.x_labeled_nums) > 0:
@@ -110,6 +110,7 @@ class GraphScene(Scene):
             color=self.axes_color,
             line_to_number_vect=LEFT,
             label_direction=LEFT,
+            **kwargs
         )
         y_axis.shift(self.graph_origin - y_axis.number_to_point(0))
         y_axis.rotate(np.pi / 2, about_point=y_axis.number_to_point(0))

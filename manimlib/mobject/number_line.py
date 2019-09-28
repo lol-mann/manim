@@ -36,7 +36,7 @@ class NumberLine(Line):
         "tip_width": 0.25,
         "tip_height": 0.25,
         "decimal_number_config": {
-            "num_decimal_places": 0,
+            "num_decimal_places": 2,
         },
         "exclude_zero_from_default_numbers": False,
     }
